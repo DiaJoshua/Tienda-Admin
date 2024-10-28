@@ -9,7 +9,7 @@ const Orders = () => {
   // Fetch all orders (transactions)
   const fetchAllOrders = async () => {
     try {
-      const response = await fetch("http://localhost:4000/api/transactions"); // Fetch transaction data
+      const response = await fetch("https://tienda-backend-au3t.onrender.com/api/transactions"); // Fetch transaction data
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
@@ -26,7 +26,7 @@ const Orders = () => {
     const newStatus = event.target.value;
     try {
       const response = await fetch(
-        `http://localhost:4000/api/transactions/${transactionId}`,
+        `https://tienda-backend-au3t.onrender.com/api/transactions/${transactionId}`,
         {
           method: "PATCH", // Using PATCH to update
           headers: {

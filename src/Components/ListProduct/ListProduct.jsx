@@ -9,7 +9,7 @@ export const ListProduct = () =>
 
     const fetchInfo = async () => {
       try {
-        const res = await fetch('http://localhost:4000/allproducts');
+        const res = await fetch('https://tienda-backend-au3t.onrender.com/allproducts');
         if (!res.ok) {
           throw new Error("Failed to fetch products");
         }
@@ -18,8 +18,8 @@ export const ListProduct = () =>
         // Construct the full image URL for each product
         const updatedProducts = data.map(product => ({
           ...product,
-          image: product.editedImage ? `http://localhost:4000/images/${product.editedImage}` : 
-                  (product.image ? `http://localhost:4000/images/${product.image}` : null) // Use the main image if no edited image
+          image: product.editedImage ? `https://tienda-backend-au3t.onrender.com/images/${product.editedImage}` : 
+                  (product.image ? `https://tienda-backend-au3t.onrender.com/images/${product.image}` : null) // Use the main image if no edited image
         }));
         
         setAllProducts(updatedProducts);
@@ -33,7 +33,7 @@ export const ListProduct = () =>
     }, []);
     
   const remove_product = async (id) => {
-    await fetch('http://localhost:4000/removeproduct', {
+    await fetch('https://tienda-backend-au3t.onrender.com/removeproduct', {
       method: 'POST',
       headers: {
         Accept: 'application/json',

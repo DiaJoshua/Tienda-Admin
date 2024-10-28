@@ -15,7 +15,7 @@ const TransactionManagement = () => {
   const fetchTransactions = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:4000/api/transactions"
+        "https://tienda-backend-au3t.onrender.com/api/transactions"
       );
       console.log(response.data);
       const filteredTransactions = Array.isArray(response.data)
@@ -33,7 +33,7 @@ const TransactionManagement = () => {
   const handleDeleteTransaction = async (id, index) => {
     if (window.confirm("Are you sure you want to delete this transaction?")) {
       try {
-        await axios.delete(`http://localhost:4000/api/transactions/${id}`); // Adjusted endpoint
+        await axios.delete(`https://tienda-backend-au3t.onrender.com/api/transactions/${id}`); // Adjusted endpoint
         // Remove transaction from state after successful delete
         setTransactions(transactions.filter((_, idx) => idx !== index));
         toast.success("Transaction deleted successfully.");

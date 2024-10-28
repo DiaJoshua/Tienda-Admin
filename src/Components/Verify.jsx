@@ -18,7 +18,7 @@ const Verify = () => {
       }
 
       // Save transaction information (you might want to send this to your backend)
-      await fetch('http://localhost:4000/api/transactions', {
+      await fetch('https://tienda-backend-au3t.onrender.com/api/transactions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
