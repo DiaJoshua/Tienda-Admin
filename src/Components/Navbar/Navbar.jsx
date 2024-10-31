@@ -1,7 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react';
-import './Navbar.css';
-import { Link, useNavigate } from 'react-router-dom';
-import navProfile from '../../assets/nav-profile.png';
+import React, { useState, useRef, useEffect } from "react";
+import "./Navbar.css";
+import { Link, useNavigate } from "react-router-dom";
+import navProfile from "../../assets/nav-profile.png";
 
 export const Navbar = () => {
   const [profileMenuVisible, setProfileMenuVisible] = useState(false);
@@ -16,30 +16,32 @@ export const Navbar = () => {
     setProfileMenuVisible(false);
   };
 
-const handleLogout = () => {
-  console.log('Logging out...'); // For debugging
-  localStorage.removeItem('admin_token');
-  console.log('Token removed from localStorage'); // For debugging
-  window.location.replace("/");
-};
-
+  const handleLogout = () => {
+    console.log("Logging out..."); // For debugging
+    localStorage.removeItem("admin_token");
+    console.log("Token removed from localStorage"); // For debugging
+    window.location.replace("/");
+  };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (profileMenuRef.current && !profileMenuRef.current.contains(event.target)) {
+      if (
+        profileMenuRef.current &&
+        !profileMenuRef.current.contains(event.target)
+      ) {
         setProfileMenuVisible(false);
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
   return (
-    <div className='navbar'>
-      <Link to="/admin/profile">
+    <div className="navbar">
+      <Link to="/admin/accountsettings">
         <p>TIENDA</p>
       </Link>
       <p>ADMIN PANEL</p>
@@ -47,7 +49,7 @@ const handleLogout = () => {
         <img
           src={navProfile}
           alt="Profile"
-          className='nav-profile'
+          className="nav-profile"
           onClick={toggleProfileMenu}
         />
         {profileMenuVisible && (
