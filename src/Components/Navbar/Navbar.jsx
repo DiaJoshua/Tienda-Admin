@@ -44,7 +44,9 @@ export const Navbar = () => {
       <Link to="/admin/accountsettings">
         <p>TIENDA</p>
       </Link>
-      <p>ADMIN PANEL</p>
+      <Link to="/admin/dashboard">
+        <p>ADMIN PANEL</p>
+      </Link>
       <div className="nav-profile-container">
         <img
           src={navProfile}
